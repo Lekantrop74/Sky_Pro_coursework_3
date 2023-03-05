@@ -2,14 +2,23 @@ import datetime
 
 
 class cart_operations:
-    """ Принимает данные по карте и делает из него экземляр класса"""
+    """ Принимает данные по операции и делает из него экземляр класса
+    __init__(self, list_operation) принимает словарь
+    data_prints(self) преобразует данные в новый словарь с нужными ключами и возвращает его в self.data_operations
+    date_write(self) берёт дату перевода и записывает её в новый словарь
+    data_description(self) записывает тип перевода
+    data_from(self) Записывает от кого произошёл перевод
+    data_to(self) записывает куда произошёл перевод
+    data_hide_from(self) скрывает номер карты от кого произошёл перевод
+    data_hide_to(self) скрывает счёт куда произошёл перевод
+    money(self) записывает валюту перевода
+    data_print_return(self) возвращает строкой все неоходимые данные записанные в self.data_operations
+"""
 
     def __init__(self, list_operation):
         self.data_operations = {}
         self.list_operation = list_operation
 
-    def __str__(self):
-        return f"{self.list_operation}"
 
     def data_prints(self):
         self.date_write()

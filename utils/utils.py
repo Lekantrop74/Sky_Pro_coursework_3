@@ -3,9 +3,9 @@ import datetime
 
 
 def load_json():
-    ''' функция данных из json'''
+    """ функция данных из json"""
     try:
-        with open('operations.json', 'r', encoding='utf-8') as operation:
+        with open('utils/operations.json', 'r', encoding='utf-8') as operation:
             return json.load(operation)
     except:
         return 'Ошибка файла'
@@ -26,13 +26,14 @@ def transactions_executed():
 
 
 def right_input(inputs):
+    """Проверка на правильность ввода"""
     if inputs.isdigit():
         return int(inputs)
 
 
 def sort_by_date(a):
-    ''' Сортировка списка выполненых операций по дате в обратном порядке
-    и возврщение заданного количества элементов'''
+    """ Сортировка списка выполненых операций по дате в обратном порядке
+    и возврщение заданного количества элементов"""
     data_executed = transactions_executed()
     sort_name = sorted(data_executed, key=lambda x: datetime.datetime.fromisoformat(x['date']), reverse=True)
     return sort_name[:int(a)]
